@@ -31,7 +31,7 @@ $total = 0;
 ?>
 <tr>
     <td><?= $nombre ?></td>
-    <td><?= $cantidad ?></td>
+    <td><?= $cantidad ?></td> 
     <td><?= $linea ?> €</td>
 </tr>
 <?php endforeach; ?>
