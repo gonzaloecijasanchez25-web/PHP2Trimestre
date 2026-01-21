@@ -1,0 +1,4 @@
+PHP es un lenguaje de programación.
+Me gusta PHP porque es fácil.
+Voy a aprender PHP a fondo.
+PHP, PHP y más PHP.

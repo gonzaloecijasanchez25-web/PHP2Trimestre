@@ -1,0 +1,4 @@
+2026-01-13 20:26:47 | Miguel | miguel@email.com
+2026-01-13 20:30:40 | Miguel | miguel@email.com
+2026-01-13 20:33:39 | Gonzalo | gonzalo.e@email.com
+2026-01-13 20:35:07 | Gonzalo | gonzalo.e@email.com

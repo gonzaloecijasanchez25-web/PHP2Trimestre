@@ -1,0 +1,3 @@
+Nota 1: Estudiar PHP
+Nota 2: Hacer ejercicios
+Nota 3: Revisar archivos
