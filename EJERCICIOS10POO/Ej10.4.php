@@ -1,35 +1,67 @@
 <?php
-class CocheF1 {
-    public $piloto;
-    public $velocidad;
+
+class Notificacion {
+    public $mensaje;
     
-    // El constructor solo recibe el piloto, la velocidad se pone automáticamente a 0
-    public function __construct($nombrePiloto) {
-        $this->piloto = $nombrePiloto;
-        $this->velocidad = 0;  // Valor por defecto
-        echo "¡" . $this->piloto . " está listo en la parrilla de salida!<br>";
+    public function __construct($mensaje) {
+        $this->mensaje = $mensaje;
     }
     
-    public function acelerar() {
-        $this->velocidad += 20;  // Aumenta 20 km/h
-        echo $this->piloto . " acelera. Velocidad: " . $this->velocidad . " km/h<br>";
+    public function enviar() {
+        echo "<p><strong>Enviando:</strong> " . $this->mensaje . "</p>";
     }
 }
 
-// Prueba del ejercicio
-echo "<br><strong>Ejercicio 4: El Coche de Carreras</strong><br><br>";
+class Email extends Notificacion {
+    public $destinatario;
+    
+    public function __construct($mensaje, $destinatario) {
+        parent::__construct($mensaje);
+        $this->destinatario = $destinatario;
+    }
+    
+    public function enviar() {
+        echo "<div style='background: #f3e5f5; padding: 15px; margin: 10px 0; border-radius: 5px; border-left: 4px solid #9c27b0;'>";
+        echo "<h3>📧 Email Enviado</h3>";
+        echo "<p><strong>Para:</strong> " . $this->destinatario . "</p>";
+        parent::enviar();
+        echo "</div>";
+    }
+}
 
-// Crear el coche de Alonso (no decimos la velocidad, el constructor la pone a 0)
-$cocheAlonso = new CocheF1("Alonso");
-
-// Acelerar dos veces
-$cocheAlonso->acelerar();
-$cocheAlonso->acelerar();
-
-// Podemos crear otro coche
-echo "<br>";
-$cocheHamilton = new CocheF1("Hamilton");
-$cocheHamilton->acelerar();
-$cocheHamilton->acelerar();
-$cocheHamilton->acelerar();  // Tercera aceleración
 ?>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Sistema de Notificaciones</title>
+    <style>
+        body { font-family: Arial; max-width: 600px; margin: 50px auto; padding: 20px; }
+        input, textarea, button { padding: 10px; margin: 5px 0; width: 100%; box-sizing: border-box; }
+        button { background: #9c27b0; color: white; border: none; cursor: pointer; }
+        button:hover { background: #7b1fa2; }
+        textarea { min-height: 80px; resize: vertical; }
+        h2 { color: #333; }
+    </style>
+</head>
+<body>
+    <h2>📧 SISTEMA DE NOTIFICACIONES</h2>
+    
+    <form method="POST">
+        <label>Mensaje:</label>
+        <textarea name="mensaje" required placeholder="Escribe tu mensaje aquí..."></textarea>
+        
+        <label>Email del destinatario:</label>
+        <input type="email" name="destinatario" required placeholder="ejemplo@correo.com">
+        
+        <button type="submit">Enviar Email</button>
+    </form>
+    
+    <?php
+    if ($_POST) {
+        $email = new Email($_POST['mensaje'], $_POST['destinatario']);
+        $email->enviar();
+    }
+    ?>
+</body>
+</html>
