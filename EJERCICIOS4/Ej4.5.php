@@ -26,7 +26,8 @@
         echo "<h3>Resumen de la semana:</h3>";
         echo "Temperatura media: " . number_format($media, 2) . "°C<br>";  // Muestra con 2 decimales
         echo "Temperatura máxima: $max°C<br>";
-        echo "Temperatura mínima: $min°C<br>";
+        echo "Temperatura mínima: $min°C<br>"; 
+    .,-.-  
     }
     ?>
 </body>
